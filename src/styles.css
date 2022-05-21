@@ -1,0 +1,30 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+.nav{
+    display: flex;
+    background-color: blanchedalmond;
+}
+h1{
+    color: #fff;
+    background-color: antiquewhite;
+    font-size: 40px;
+    padding-left: 60px;
+}
+ul{
+    margin: auto;
+    padding-left: 45rem;
+}
+li{
+    font-size: 15px;
+    padding-top: 30px;
+    list-style: none;
+    display: inline;
+    margin: 10px;
+}
+.contenido{
+    font-size: x-large;
+    margin-top: 5rem;
+    margin-left: 35rem;
+}
