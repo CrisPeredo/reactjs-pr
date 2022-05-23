@@ -1,22 +1,27 @@
-import "./styles.css"
-import Navbar from './Components/Navbar';
+
+import Navbar from './Components/Navbar/Navbar';
+import {Contenido} from "./Components/Contenido/Contenido"
+import { ItemListContainer } from './Components/ItemListContainer/ItemListContainer';
 
 
 function App() {
-
-  const MiContenido = "Ingresar contenido"
-
-
+  
+   const producto = {  
+    nombre: "Taza de Stitch",
+    precio: "$300"
+   }
 
   return (
     <div className="App">
       
-
-        <Navbar/>
-
-      <p className="contenido">{MiContenido}</p>
+      
+    <Navbar/>
+    
+    <ItemListContainer nombre={producto.nombre} precio={producto.precio}/>
     </div>
+
+   
   );
-}
+  }
 
 export default App;

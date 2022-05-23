@@ -1,3 +1,7 @@
+import "./Navbar.css"
+import { MdAddShoppingCart } from "react-icons/md"
+ 
+
 const Navbar = () =>{
     return <header>
         <nav>
@@ -8,9 +12,10 @@ const Navbar = () =>{
                     <li>Menu</li>
                     <li>Productos</li>
                     <li>Ayuda</li>
+                    <li className="cart"><MdAddShoppingCart/></li>
                 </ul>        
             </div>
         </nav>
     </header>
 }
-export default Navbar
+export default Navbar 
