@@ -1,4 +1,6 @@
 import "./ItemListContainer.css"
+import Contador from "../Contador/Contador"
+
 
 export const ItemListContainer = ({nombre, precio}) =>{
 
@@ -8,6 +10,7 @@ export const ItemListContainer = ({nombre, precio}) =>{
             
             <p className="name__product">Producto: {nombre}</p>
             <p>Precio {precio}</p>
+            <p> <Contador/></p>
         </section>
     )
 }
