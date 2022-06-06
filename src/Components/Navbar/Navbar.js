@@ -1,21 +1,22 @@
-import "./Navbar.css"
-import { MdAddShoppingCart } from "react-icons/md"
- 
+import './Navbar.scss'
 
-const Navbar = () =>{
-    return <header>
-        <nav>
-            <div className="nav">
-                <h1>MI PROYECTO</h1>
 
-                <ul>
-                    <li>Menu</li>
-                    <li>Productos</li>
-                    <li>Ayuda</li>
-                    <li className="cart"><MdAddShoppingCart/></li>
-                </ul>        
+export const Navbar = () => {
+
+    return (
+        <header className="header">
+            <div className="header__container">
+
+                <h1 className="header__logo">PROYECTO CODER</h1>
+
+                <nav className="header__navbar">
+                    <a href="/" className="header__navlink">Home</a>
+                    <a href="/nosotros" className="header__navlink">Nosotros</a>
+                    <a href="/contacto" className="header__navlink">Contacto</a>
+                </nav>
             </div>
-        </nav>
-    </header>
+        </header>
+    )
 }
-export default Navbar 
+
+export default Navbar
