@@ -12,6 +12,7 @@ const productos = [
         marca:"Champion",
         color:"Gris",
         disciplina:"Moda",
+        stock:5
     },
     {
         id: 2,
@@ -25,6 +26,7 @@ const productos = [
         marca:"Adidas",
         color:"Rosa",
         disciplina:"Moda",
+        stock:17
     },
     {
         id: 3,
@@ -38,6 +40,7 @@ const productos = [
         marca:"Adidas",
         color:"Marron",
         disciplina:"Moda",
+        stock:8
     },
     {
         id: 4,
@@ -51,6 +54,7 @@ const productos = [
         marca:"Adidas",
         color:"Negro",
         disciplina:"Moda",
+        stock:20
     },
     {
         id: 5,
@@ -64,6 +68,7 @@ const productos = [
         marca:"Nike Sportswear ",
         color:"Blanco",
         disciplina:"Basket",
+        stock:30
     },
     {
         id: 6,
@@ -77,6 +82,7 @@ const productos = [
         marca:"NIKE ",
         color:"Marron",
         disciplina:"Running",
+        stock: 23
     },
 ]
 
