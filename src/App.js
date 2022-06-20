@@ -45,7 +45,7 @@ function App() {
 
   return (
 
-    <CartContext.Provider value={{cart, addItem, isInCart, totalPrecio, totalCantidad, vaciarCarrito}}>
+    <CartContext.Provider value={{cart, addItem, isInCart, totalPrecio, totalCantidad, vaciarCarrito, removerItem}}>
 
 
 
