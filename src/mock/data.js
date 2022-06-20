@@ -1,4 +1,5 @@
 import "./data.css"
+
 const productos = [
     {
         id: 1,
