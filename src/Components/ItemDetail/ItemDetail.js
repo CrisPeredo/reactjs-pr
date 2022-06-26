@@ -1,74 +1,74 @@
-import { Link, useNavigate } from "react-router-dom"
-import React, {useContext, useState} from "react"
-import ItemCounter from "../ItemCounter/ItemCounter"
-import { CartContext } from "../../Context/Context"
+import React, { useState, useEffect, useContext } from "react";
+import ItemCount from "../ItemCount/ItemCount";
+import Item from "../Item/Item";
+import CartContext from "../../contexts/cartContext";
 
+import "./ItemDetail.scss";
 
-const ItemDetail = ({item}) => {
-    
-    const {addItem, isInCart} = useContext(CartContext)
+const ItemDetail = ({ product }) => {
+  const { setCart, setQnt } = useContext(CartContext);
+  const [article, setArticle] = useState();
 
-  
+  useEffect(() => {
+    setArticle(product);
+  }, [product]);
 
-    const [cantidad, setCantidad] = useState(1)
+  const style = {
+    marginBottom: "20px",
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
+  };
 
-    const navigate = useNavigate()
+  const styleButtom = {
+    width: "86%",
+    marginTop: "5px",
+    backgroundColor: "green",
+    color: "white",
+  };
 
-    const handleVolver = () => {
-        navigate(-1)
-    }
-    const agregar = () => {
-        const itemToCart = {
-            ...item,
-            cantidad
-        }
+  const [quantity, setQuantity] = useState(1);
 
-       addItem(itemToCart)
+  const handleClick = () => {
+    setQnt((value) => value + quantity);
+    article.quantity = quantity;
 
-    }
+    const prod = {
+      id: article.id,
+      name: article.name,
+      description: article.description,
+      stock: article.stock,
+      price: article.price,
+      brand: article.brand,
+      model: article.model,
+      quantity: article.quantity,
+      gender: article.gender,
+      image: article.image,
+    };
 
-    return (
-        <div className="container my-5">
-            <h2>{item.nombre}</h2>
-            <img src={item.img} alt={item.nombre}/>
-            <h4>Precio: ${item.precio}</h4>
-            <p><strong>Género:</strong> {item.genero}</p>
-            <p><strong>Proveedor:</strong> {item.proveedor}</p>
-            <p><strong>Color:</strong> {item.color}</p>
-            <p><strong>Disciplina:</strong> {item.disciplina}</p>
-            <hr/>
+    setCart((value) => [...value, prod]);
+  };
 
-            {
-                isInCart(item.id)
-                ?
-                <Link to="/cart" className="btn btn-danger my-3">¡Listo!</Link>
-                :
-                <ItemCounter
-                
-                max={item.stock}
-                counter={cantidad}
-                setCounter={setCantidad}
-                onAdd={agregar}
-                />
-            
+  return (
+    <div style={style} className="item-detail">
+      <Item product={product} />
+      <ItemCount
+        initial={1}
+        min={0}
+        max={product.stock}
+        setQuantity={setQuantity}
+      />
+      <Button
+        variant="contained"
+        color="primary"
+        style={styleButtom}
+        onClick={handleClick}
+        className="item-detail__btn"
+      >
+        Agregar al carrito {quantity}
+      </Button>
+    </div>
+  );
+};
 
-            }
-            
-
-            
-
-            <br/>
-
-            <button onClick={handleVolver}>VOLVER</button>
-        </div>
-    ) 
-}
-
-    export default ItemDetail
-
-
-
-
-
-
-
+export default ItemDetail;

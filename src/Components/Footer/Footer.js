@@ -1,15 +1,45 @@
-import "./Footer.css"
+import React, { Component } from "react";
+import "./Footer.scss";
 
-const Footer = () => {
-
+class Footer extends Component {
+  render() {
     return (
-
-        <div className="background__footer">
-            <p className="text__footer">Seguinos en Instagram! 
-            <img className="imagen__ig" src="https://cdn-icons-png.flaticon.com/512/174/174855.png"></img>
-            </p>
+      <footer>
+        <div className="social">
+          <a
+            className="social-github"
+            href="https://github.com/eduardomgonzalez"
+            target="blank"
+          >
+            <GitHub
+              color="secondary"
+              fontSize="large"
+              className="social-icons"
+            />
+          </a>
+          <a
+            className="social-linkedin"
+            href="https://www.linkedin.com/in/eduardo-gonzalez01/"
+            target="blank"
+          >
+            <LinkedIn
+              color="secondary"
+              fontSize="large"
+              className="social-icons"
+            />
+          </a>
         </div>
-    )
+
+        <div className="copyright">
+          © 2020 Copyright
+          <a href="https://eduardo-gonzalez-portafolio.now.sh/" target="blank">
+            {" "}
+            Eduardo González
+          </a>
+        </div>
+      </footer>
+    );
+  }
 }
 
-export default Footer
+export default Footer;

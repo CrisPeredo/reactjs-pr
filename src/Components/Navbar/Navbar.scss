@@ -1,38 +1,38 @@
-.header {
-    background-color: black;
+.navbar {
+  color: white;
+  background-color: black !important;
 
-    &__container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 20px 0;
-
-        .header__logo {
-            color: white;
-            text-decoration: none;
-        }
-
-
-        .header__navbar {
-            display: flex;
-            width: 50%;
-            justify-content: space-around;
-            align-items: center;
-            text-decoration: none;
-
-            .header__navlink {
-                color: white;
-                font-weight: 700;
-                text-decoration: none;
-                text-transform: uppercase;
-                cursor: pointer;
-            }
-        }
-        .widget{
-            color: #fff;
-            font-size: 40px;
-        }
+  .navbar-brand {
+    h2 {
+      margin-left: 40px;
     }
+
+    img {
+      width: 200px;
+    }
+  }
+
+  .navbar-collapse {
+    .ml-auto {
+      margin-right: 50px !important;
+
+      a {
+        font-size: 19px;
+      }
+    }
+  }
+
+  .MuiBadge-badge {
+    margin: -2px;
+  }
+
+  .icon {
+    display: none;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .icon {
+      display: block;
+    }
+  }
 }
