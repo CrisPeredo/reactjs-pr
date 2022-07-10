@@ -1,3 +1,4 @@
+import { Instagram } from "@material-ui/icons";
 import React, { Component } from "react";
 import "./Footer.scss";
 
@@ -8,7 +9,7 @@ class Footer extends Component {
         <div className="social">
           <a
             className="social-github"
-            href="https://github.com/eduardomgonzalez"
+            href="https://github.com/CrisPeredo"
             target="blank"
           >
             <GitHub
@@ -19,10 +20,10 @@ class Footer extends Component {
           </a>
           <a
             className="social-linkedin"
-            href="https://www.linkedin.com/in/eduardo-gonzalez01/"
+            href="https://www.linkedin.com/in/cristian-peredo-666a86237/"
             target="blank"
           >
-            <LinkedIn
+            <Instagram
               color="secondary"
               fontSize="large"
               className="social-icons"

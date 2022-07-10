@@ -11,7 +11,7 @@ const Categories = () => {
   const [loading, setLoading] = useState(true);
   const { categoryId } = useParams();
 
-  // Traingo datos desde Firebase
+  // Traigo datos desde Firebase
   useEffect(() => {
     const db = getFirestore();
     const itemCollection = db.collection("items");

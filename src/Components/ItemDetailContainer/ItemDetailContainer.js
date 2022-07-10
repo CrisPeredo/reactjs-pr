@@ -1,52 +1,41 @@
-import { useEffect, useState } from "react"
-import { Spinner } from "react-bootstrap"
-import { pedirDatos } from "../../mock/pedirDatos"
-import { useParams } from "react-router-dom"
-import ItemDetail from "../ItemDetail/ItemDetail"
-//import { doc, getDoc } from "firebase/firestore"
-//import { db } from "../../fireBase/config"
+import React, { useState, useEffect } from "react";
+import ItemDetail from "../ItemDetail/ItemDetail";
+import Loading from "../Loading/Loading";
 
-export const ItemDetailContainer = () => {
+const ItemDetailContainer = ({ product, onAdd }) => {
+  const [article, setArticle] = useState();
+  const [loading, setLoading] = useState(true);
 
-    const [item, setItem] = useState(null)
-    const [loading, setLoading] = useState(true)
+  const getProduct = () => {
+    return new Promise((res, rej) => {
+      setTimeout(() => {
+        res(product);
+      }, 1000);
+    });
+  };
 
-    const { itemId } = useParams()
+  useEffect(() => {
+    let isSubscribed = true;
+    getProduct()
+      .then((data) => {
+        if (isSubscribed) {
+          setArticle(data);
+          setLoading(false);
+        }
+      })
+      .catch(() => console.log("rejected"));
 
+    return () => (isSubscribed = false);
+    
+  }, []);
 
-    useEffect(() => {
-        setLoading(true)
+  return loading ? (
+    <Loading text="Cargando..." />
+  ) : (
+    <div>
+      <ItemDetail product={article} onAdd={onAdd} />
+    </div>
+  );
+};
 
-        pedirDatos()
-        .then((resp) => {
-           setItem( resp.find((item) => item.id === Number(itemId)) )
-        })
-        .catch((error) => {
-            console.log('ERROR', error)
-            /*const docRef = doc(db, "productos", itemId)
-
-        getDoc(docRef)
-            .then((doc) => {
-                setItem( {id: doc.id, ...doc.data()} )*/
-            })
-            .finally(() => {
-                setLoading(false)
-            })
-
-    }, [])
-
-    return (
-        <section className="container my-5">
-            
-            {
-                loading
-                ?   <Spinner animation="border" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </Spinner>
-
-                :  <ItemDetail item={item}/>
-            }
-            
-        </section>
-    )
-}
+export default ItemDetailContainer;
